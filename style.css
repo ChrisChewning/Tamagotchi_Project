@@ -1,0 +1,64 @@
+body {
+   background-image: url("http://fc06.deviantart.net/fs70/f/2011/195/5/b/tamagotchi_new_generation_bg_by_tamastargirl-d3n8vab.jpg");
+   background-color: #cccccc;
+   background-repeat: no-repeat;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* #background {
+  opacity: 0.7;
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+} */
+
+#tama {
+  width: 250px;
+  height: 250px;
+  border: solid black 1px;
+  background-image: url("tama_mama.gif");
+  background-position: center;
+  background-color: white;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -70px 0 0 -170px;
+}
+
+/* .parent {
+  position: relative;
+}
+
+.child {
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  margin: -70px 0 0 -170px;
+} */
+
+
+
+
+
+
+#scoreboard {
+  width: 200px;
+  height: 200px;
+  border: solid black 1px;
+  background-color: white;
+
+}
