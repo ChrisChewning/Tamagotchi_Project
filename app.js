@@ -14,28 +14,38 @@ let boredom = 5;
 let sleepiness = 5;
 
 
+
+//TIMER FUNCTION
 const setTimer = () => {
   const $timer = $('#timer');
+  let $age = $('#age');
   const timer = setInterval(() => {
 time--;
 console.log(time);
 
   if (time === 50) {
-  age+=10;
+  age += 10; //only works on this one.
+  console.log(age);
 } else if (time === 40){
-  // background img:
+  age += 10;
+
+  console.log(age);
 } else if (time === 30) {
-  age+=10;
+  age += 10;
+  console.log(age);
 } else if (time === 20) {
-  age+=10;
+  age += 10;
+  console.log(age);
 } else if (time === 10) {
-  age+=10;
+  age += 10;
+  console.log(age);
 } else if (time === 0) {
   clearInterval(timer);  //stops the timer. if you want to add rounds, put round++ here and make a let global variable.
   alert('game is over!')
 };
 
 $('#timer').text('timer: ' + time + 's');
+$('#age').text('age: ' + age + ' years old.')
 
 }, 1000); //this goes every second.
 };
@@ -90,20 +100,22 @@ console.log(tama);
 // e.target
 
 //TIMER
-$('#timer').text('timer: ' + time + 's');
-$('#age').text('age: ' + age + ' years old');
+// $('#timer').text('timer: ' + time + 's');
+// $('#age').text('age: ' + age + ' years old');
 
 //HUNGER FUNCTION
 
+//button is #hungerLevel
+
 $('#hungerLevel').on('click', (e) => {
   const $hungerLevel = $('#hungerLevel');
+  // $('#hungerlevel').atrr()
+  // $('#hungerLevel').text('hunger: ' + hungerLevel);
 
-  $('#hungerLevel').text('hunger: ' + hungerLevel);
-
-  console.log('I am hungry'); //testing
-  if(hunger > 1) {
+  console.log('I am hungry'); //working
+  if(hunger > 1) { //working
     hunger--;
-    $('#hunger').text('Hunger: ' + hunger);
+    $('#hunger').text('Hunger: ' + hunger); //working
   }
 });
 
@@ -113,7 +125,8 @@ $('#hungerLevel').on('click', (e) => {
 $('#boredomLevel').on('click', (e) => {
   const $boredomLevel = $('#boredomLevel');
 
-  $('#boredomLevel').text('boredom: ' + boredomLevel);
+  // <img id='hungryImg'>
+  // $('#boredomLevel').text('boredom: ' + boredomLevel);
 
  console.log('I am bored'); //testing
 
@@ -129,8 +142,8 @@ $('#boredomLevel').on('click', (e) => {
 
 $('#sleepinessLevel').on('click', (e) => {
   const $sleepinessLevel = $('#sleepinessLevel');
-
-  $('#sleepinessLevel').text('sleepiness: ' + sleepinessLevel);
+  //you could use a jqeury toggle function to change the text to the icon when you click it.
+  // $('#sleepinessLevel').text('sleepiness: ' + sleepinessLevel);
   console.log('I am sleepy'); //testing
 
   if(sleepiness > 1) {
@@ -141,6 +154,7 @@ $('#sleepinessLevel').on('click', (e) => {
 
 
 
+//EVENT LISTENER & CLICK FUNCTION FOR THE INPUT BOX NAME VALUE
 
 $('#submit-btn').on('click', (e) => {
   //don't forget the e ni the parameter. if it's blank it won't read the preventDefault()
@@ -152,6 +166,12 @@ const $tama = $('#tama').val(); //this gets the value you put in the input box w
 $('#tama').append($('#input-box').val() + "'s ");
 //gets the input value. you want that to be in a string with 's though.
 //cannot do it opposite. ex: $('#input-box').val().appendTo('#tama');
+
+
+// render() {
+//     $('#input-box').empty();
+//     e.preventDefault();
+// }
 
 
 // $('#tama').append(`${tama}`);
@@ -222,18 +242,13 @@ $('#tama').append($('#input-box').val() + "'s ");
 // }
 //
 //
-
-
-
-//UPDATING THE SCOREBOARD WITH jQUERY
-// const $scoreboard = $('#scoreboard').addText('hi').appendTo('');
-
-//const $h1 = $('<h1/>');
-
-// const makeScoreboard = () => {
-// const $div = $('<div/>');
-// // $('body').append($div);
-// // $('h2').text('SCOREBOARD').appendTo('$div');
-// console.log('hi');
-// };
-// makeScoreboard();
+//
+//
+// const didPetDie = (timerName) => {
+// 		if (pet.hunger === 10 || pet.sleepiness === 10 || pet.boredom === 10) {
+// 			console.log(`{($('#input-box').val())}`);
+// 			clearInterval(time)
+// 		}
+// 	};
+//
+// })
