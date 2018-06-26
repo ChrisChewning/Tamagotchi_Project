@@ -8,8 +8,6 @@ body {
   background-size: cover;
   background-position: center;
 }
-
-
 /* #background {
   opacity: 0.7;
   background-color: #cccccc;
@@ -20,45 +18,71 @@ body {
  background-size: cover;
 } */
 
-#tama {
+
+input{
+    width: 50%;
+    height: 30px;
+    border: 2px solid red;
+    border-radius: 4px;
+    text-align: center;
+}
+
+
+
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+#userInput {
+  text-align: center;
+  width: 375px;
+  height: 125px;
+  background-color: white;
+  border: solid black 1px;
+  margin-bottom: 50px;
+}
+
+
+#tamaImg {
   width: 250px;
   height: 250px;
   border: solid black 1px;
+
   background-image: url("tama_mama.gif");
   background-position: center;
   background-color: white;
   background-repeat: no-repeat;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -70px 0 0 -170px;
+  margin-bottom: 50px;
 }
-
-/* .parent {
-  position: relative;
-}
-
-.child {
-  width: 300px;
-  height: 100px;
-  padding: 20px;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  margin: -70px 0 0 -170px;
-} */
-
-
-
-
-
 
 #scoreboard {
-  width: 200px;
-  height: 200px;
-  border: solid black 1px;
+  text-align: center;
+  width: 500px;
+  height: 250px;
   background-color: white;
-
+  border: solid black 1px;
 }
+
+  #nameAge {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #hbs {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #tama {
+    color: red;
+  }
+
+/* #stats {
+  display: inline-block;
+} */
