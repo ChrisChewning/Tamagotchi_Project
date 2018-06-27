@@ -1,155 +1,172 @@
-console.log("hi");
-if (typeof jQuery == 'undefined'){
-  console.log('oops! I still have to link my jQuery properly!');
-} else {
-  console.log('I did it! I linked jQuery and this js file!')
-};
 
 
-//global variables
+//-----------------------GLOBAL VARIABLES----------------------------
+// let lightsOn = true; could let it toggle.
+
 let time = 60;
 let age = 30;
 let hunger = 5;
 let boredom = 5;
 let sleepiness = 5;
-// let lightsOn = true;
+
+//----------------------BOUNCE FUNCTIONS----------------------------
+
+// const tamaBounce = () = {
+//   $('#tamaImg').attr('class', 'bounce')
+// };
 
 
-//-------------------LIGHTS FUNCTIONS----------------------------
-
+//----------------------LIGHTS FUNCTIONS----------------------------
 
 //adapted from: http://jsfiddle.net/S4rsh/
+//could just toggle lightsOn to false.
+// }).fadeTo(1000, 0.0);
+//fadeTo() is the method. 1000 is milliseconds? 0.0 is transparency.
+
+
 const lightsOff = () => {
   $('#tamaImg').css({
     'background-color': 'black'
   })
-  // }).fadeTo(1000, 0.0);
-  //fadeTo() is the method. 1000 is milliseconds? 0.0 is transparency.
 };
 
 const lightsReallyOff = () => {
-  const $body = $('body');
-  $('body').css({
+  // $('#theBod') =
+  $('#theBod').css({
     'background-color': 'black'
   })
 };
+lightsReallyOff();
 
 const lightsOn = () => {
-  $('#tamagImg').show().css()
-    // 'display': 'flex',
-    // 'flex-direction': 'column',
-    // 'justify-content': 'space-between',
-    // 'align-items': 'center'
-  // })
+  $('#tamaImg').css({
+    'background-color': 'white'
+  })
 };
 
 
-//could just toggle lightsOn to false.
 
-// let lightsOn = () {
-//
-// };
-
-// let lightsOff = () => {
-//   //could jut be toggling lightOn back on.
-// }
-
-//When you click something the lights turn back on.
-// $('#').on('click', (e) => {
-//   const $hungerLevel = $('#hungerLevel');
-//   console.log('I am hungry'); //working
-// });
-// });
-
-
-
-
-
-
-
-//TIMER FUNCTION
-
-
-
-//
-// $('#submit-btn').on('click', (e) => {
-//   //don't forget the e ni the parameter. if it's blank it won't read the preventDefault()
-//   e.preventDefault();
-// console.log($('#input-box').val()); //checking
-//
-// const $tama = $('#tama').val(); //this gets the value you put in the input box with id tama
-// // $('#tama').text(`${tama}`).val('');
-// $('#tama').append($('#input-box').val() + "'s ");
-// //gets the input value. you want that to be in a string with 's though.
-// //cannot do it opposite. ex: $('#input-box').val().appendTo('#tama');
-//
-//
-// //DOESN'T WORK TO EMPTY THE INPUT FORM
-// // render() {
-// //     $('#input-box').empty();
-// //     e.preventDefault();
-// // }
-
-
-
+//------------------------------TIMER FUNCTION----------------------------
 
 const setTimer = () => {
+
+  //JQUERY TO ACCESS VARIABLES.
   const $timer = $('#timer');
   let $age = $('#age');
   let $hunger = $('#hunger');
   let $boredom = $('#boredom');
   let $sleepiness = $('#sleepiness');
 
-  const timer = setInterval(() => {
-time--;
-// console.log(time); //checking
 
-  if (time === 50) {
+  //SET THE TIMER TO RUN FOR A MINUTE. THINGS WILL HAPPEN AT LEAST EVERY 10 SECONDS.
+  const timer = setInterval(() => {
+    time--;
+
+  if (time === 57) {
+    $('#tamaImg').attr('class', 'spin')
+    // lightsReallyOff();
+    // $('#tamaImg').attr('class', 'spin')
+
+  } else if (time === 50) {
     lightsOff();
-  age += 10; //only works on this one.
+  age += 10;
   console.log(age + 'age');
   hunger += 4;
+
   console.log(hunger + 'hunger');
   boredom +=5;
   console.log(boredom + 'boredom');
   sleepiness += 1;
   console.log(sleepiness + 'sleepiness');
+  updateVals(hunger, boredom, sleepiness);
 
 } else if (time === 47){
-  // lightsOn();
+  $('#tamaImg').attr('class', 'bounce')
+  sleepiness = 20;
+  boredom = 15;
+  lightsOn();
   console.log('hi');
-  lightsReallyOff();
+
 } else if (time === 40){
   age += 10;
-  lightsOff();
+  lightsOn();
   console.log(age);
+  // $('#tamaImg').attr('class', 'bounce')
+  // $('#tamaImg').attr('class', 'bounce')
+  // $('#tamaImg').attr('class', 'bounce')
+
+
+
 } else if (time === 30) {
   age += 10;
   console.log(age);
   lightsOff();
   sleepiness === 10;
   boredom === 10;
-  //when lights go off your sleepiness is 10 and your boredom is 10. you have to bring these down by 25 seconds or the game is over.
+
 
 } else if (time === 20) {
   age += 10;
   console.log(age);
+
 } else if (time === 10) {
   age += 10;
   console.log(age);
-} else if (time === 0) {
-  clearInterval(timer);  //stops the timer. if you want to add rounds, put round++ here and make a let global variable.
-  alert('game is over!')
-};
 
-$('#timer').text('timer: ' + time + 's');
-$('#age').text($('#input-box').val() + ' is ' + age + ' years old.')
 
-}, 1000); //this goes every second.
-};
+// ---------------------------ENDING THE GAME-----------------------
 
-// console.log($('#input-box').val());
+//ELSE STATEMENT WON'T WORK.
+//TIMER STOPS AT 1 SECOND.
+// NEED to reset the timer back up to 60 without refreshing the page.
 
+// else if (time ===0 $$ ( hunger >= 10 || sleepiness >= 10 || boredom >= 10))
+
+
+} else if ((time === 0) && (hunger >= 10 || sleepiness >= 10 || boredom >= 10 )) {
+alert($('#input-box').val() + ' has died.');
+clearInterval(timer);
+
+
+// } else if ((time === 0) && (hunger >= 10)) {
+//   alert($('#input-box').val() + ' has died.');
+//   clearInterval(timer);
+//
+// } else if ((time === 0) && (sleepiness >= 10)) {
+//   alert($('#input-box').val() + ' has died.');
+//   clearInterval(timer);
+//
+// } else if ((time === 0) && (boredom >= 10)) {
+//   alert($('#input-box').val() + ' has died.');
+//   clearInterval(timer);
+
+} else if ((time === 0) && (hunger < 10 || sleepiness < 10 || boredom < 10 )) {
+alert($('#input-box').val() + ' has lived.');
+clearInterval(timer);
+
+}
+// } else if ((time === 0) && (hunger < 10)) {
+// clearInterval(timer);
+// alert($('#input-box').val() + ' has lived.');
+//
+// } else if ((time === 0) && (sleepiness < 10)) {
+//   clearInterval(timer);
+//   alert($('#input-box').val() + ' has lived.');
+//
+// } else if ((time === 0) && (boredom < 10)) {
+//   clearInterval(timer);
+//   alert($('#input-box').val() + ' has lived.');
+// }
+
+
+    $('#timer').text('timer: ' + time + 's');
+    $('#age').text($('#input-box').val() + ' is ' + age + ' years old.')
+
+    }, 1000); //this goes every second.
+  };
+
+
+//-----------------------SET TIMER BUTTON -----------------------------
 
 $('#submit-btn').on('click', (e) => {
   console.log('button clicked'); //testing
@@ -157,8 +174,7 @@ setTimer();
 });
 
 
-
-//TAMAGOTCHI CLASS
+//----------------------- TAMAGOTCHI CLASS -----------------------------
 // could this part be inside a input text form where the name you could type in but then it gave you 5,5,5 for the rest?
 class tamagotchi {
   constructor(name, age, hunger, sleep, boredom){
@@ -174,167 +190,69 @@ console.log(tama);
 
 
 
-//USER NAMES THE TAMAGOTCHI.   #userInput i.d.
-// const nameTheTamagotchi = ('click', (e) => {
-//  //someone names the tamagotchi in the input box that you access here. You would access the value with an
-//  $(e.currentTarget).text('');
-// });
-
-
-//TIMER FUNCTION
-//use the e.currentTarget
-//if (age) hits +=10 from the beginning, appendTo() the div.
-
-
-
 // -----------------BUTTONS AND THE FUNCTIONS THAT GO WITH THEM-----------------
 
-//OTHER BUTTONS
-// const $boredomButton = $('<button id="boredomLevel">Decrease Boredom</button>');
-// $('#boredom-button').appendTo('body');
-//
-// const $hungerButton = $('<button id="hungerLevel">Decrease Hunger</button>');
-// $('#hunger-button').appendTo('body');
+//you could use a jqeury toggle function to change the text to the icon when you click it.
+// $('#sleepinessLevel').text('sleepiness: ' + sleepinessLevel);
 
 
-// e.target
 
-//TIMER
-// $('#timer').text('timer: ' + time + 's');
-// $('#age').text('age: ' + age + ' years old');
+//UPDATE ON THE SCREEN
+
+const updateVals = (hunger, boredom, sleepiness) => {
+  $('#boredom').text('Boredom: ' + boredom);
+  $('#hunger').text('Hunger: ' + hunger);
+  $('#sleepiness').text('Sleepiness: ' + sleepiness);
+}
+
+
 
 //HUNGER FUNCTION
 
-//button is #hungerLevel
 
 $('#hungerLevel').on('click', (e) => {
   const $hungerLevel = $('#hungerLevel');
-  // $('#hungerlevel').atrr()
-  // $('#hungerLevel').text('hunger: ' + hungerLevel);
-
+  // $('#hungerlevel').attr() could work?
   console.log('I am hungry'); //working
   if(hunger > 1) { //working
     hunger--;
     $('#hunger').text('Hunger: ' + hunger); //working
+    e.preventDefault();
   }
 });
 
 
 //BOREDOM FUNCTION
-
 $('#boredomLevel').on('click', (e) => {
   const $boredomLevel = $('#boredomLevel');
-
-  // <img id='hungryImg'>
-  // $('#boredomLevel').text('boredom: ' + boredomLevel);
-
  console.log('I am bored'); //testing
-
   if(boredom > 1) {
     boredom--;
     $('#boredom').text('Boredom: ' + boredom);
+    e.preventDefault();
   }
 });
-
 
 
 //SLEEPINESS FUNCTION
-
 $('#sleepinessLevel').on('click', (e) => {
   const $sleepinessLevel = $('#sleepinessLevel');
-  //you could use a jqeury toggle function to change the text to the icon when you click it.
-  // $('#sleepinessLevel').text('sleepiness: ' + sleepinessLevel);
   console.log('I am sleepy'); //testing
-
   if(sleepiness > 1) {
     sleepiness--;
     $('#sleepiness').text('Sleepiness: ' + sleepiness);
+    e.preventDefault();
   }
 });
 
 
-
-//EVENT LISTENER & CLICK FUNCTION FOR THE INPUT BOX NAME VALUE
+// -------------------------NAME THE TAMAGOTCHI-------------------------
 
 $('#submit-btn').on('click', (e) => {
-  //don't forget the e ni the parameter. if it's blank it won't read the preventDefault()
   e.preventDefault();
 console.log($('#input-box').val());
-
-const $tama = $('#tama').val(); //this gets the value you put in the input box with id tama
-// $('#tama').text(`${tama}`).val('');
-// $('#tama').append($('#input-box').val() + " is ");
-//gets the input value. you want that to be in a string with 's though.
+const $tama = $('#tama').val()
+//this gets the value you put in the input box with id tama
 //cannot do it opposite. ex: $('#input-box').val().appendTo('#tama');
 
-
-//DOESN'T WORK TO EMPTY THE INPUT FORM
-// render() {
-//     $('#input-box').empty();
-//     e.preventDefault();
-// }
-
-
 });
-
-
-// const $hungerLevel = $('#hungerLevel');
-
-
-// const $sleepyButton = $('<button id="sleepinessLevel">Decrease Sleepiness</button>');
-// $('#sleepy-button').appendTo('body');
-
-
-
-// //AGE FUNCTION
-// const boredomTime = () => {
-//   //increase boredom every ___________?
-//   if (tamagotchi.boredom <= 0) {
-//     alert(`${tamagotchi.name} is dead`);
-//   }
-// }
-
-
-//HUNGER FUNCTION
-// const hungerTime = () => {
-//   //increase hunger every ____________?
-//     //+2 ++
-//   if (tamagotchi.hunger <= 0) {
-//     alert(`${tamagotchi.name} is dead`);
-//   }
-// }
-// hungerTime();
-
-
-// //SLEEPY FUNCTION
-// const sleepyTime = () => {
-//   //increase sleepiness every _______?
-//   if (tamagotchi.sleep <= 0) {
-//     alert(`${tamagotchi.name} is dead`);
-//   }
-// }
-//
-// };
-
-// //BOREDOM FUNCTION
-// const boredomTime = () => {
-//   //increase boredom every ___________?
-//   if (tamagotchi.boredom <= 0) {
-//     alert(`${tamagotchi.name} is dead`);
-//   }
-// }
-//
-//
-//
-
-/*accessing the Class. could you just say
-(hunger === 10 || sleepiness === 10 || boredom === 10)*/
-// const didPetDie = (timerName) => {
-// 		if (pet.hunger === 10 || pet.sleepiness === 10 || pet.boredom === 10) {
-// 			console.log(`{($('#input-box').val())}`); //to check
-//        alert($('#input-box').val() + ' has died.')
-// 			clearInterval(time)
-// 		}
-// 	};
-//
-// })
