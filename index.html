@@ -8,35 +8,30 @@
 </head>
 
 
-<body>
+  <body>
+
+
   <div id="container">
 
-    <!--this will be changed. this is for the user.  -->
-    <div id="userInput">
-      <h1>Name Your Tamagotchi!</h1>
-      <form>
-        <input type="text" placeholder="tama's name..." id="input-box">
-        <button type="submit" id="submit-btn">Submit</button>
-
-
-        <!-- could be button type or input type. doesn't matter -->
-      </form>
-    </div>
-
-    <!--this is for the tamagotchi's image. it'll update with jQuery.  -->
     <div id='tamaImg'></div>
 
-    <!--this is the scoreboard that will show sleepiness, hunger, boredom, etc.  -->
+    <div id="userInput">
+      <form>
+        <input type="text" placeholder="My tama's name is..." id="input-box">
+        <button type="submit" id="submit-btn">Submit</button>
+        <!-- could be button type or input type. doesn't matter -->
+
+    </div>
+
+
     <div id='scoreboard'>
 
-      <h1><span id="tama"> </span>Stats</h1>
-      <!-- <span id="round">round: 1</span> -->
-
-      <button id="start">Start</button>
-      <span id="timer">timer: 60s</span><br>
+      <h1><span id="timer">timer: 60s</span></h1>
+      <h3><span id="tama">
+      </span><i>Click the buttons to keep everything below 10.</i></h3>
 
       <div id='nameAge'>
-        <h3 id="age">Age: </h3>
+        <h3 id="age"></h3>
       </div>
 
       <div id='hbs'>
@@ -50,7 +45,7 @@
         <h3 id="sleepiness">Sleepiness Level</h3>
         <button id="sleepinessLevel" img src="sleepy.png"></button>
       </div>
-    </div>
+
 
   </div>
 
@@ -60,7 +55,7 @@
 
   <!-- <img  src="http://fc06.deviantart.net/fs70/f/2011/195/5/b/tamagotchi_new_generation_bg_by_tamastargirl-d3n8vab.jpg" alt="Background Tomagotchi Image" id="background"> -->
 
-
+</div>
 </body>
 
 </html>
