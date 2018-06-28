@@ -7,6 +7,21 @@ let hunger = 5;
 let boredom = 5;
 let sleepiness = 5;
 
+//----------------------- TAMAGOTCHI CLASS -----------------------------
+
+class tamagotchi {
+  constructor(name, age, hunger, sleep, boredom){
+    this.name = name; //do not put name as 'name' here. it doesn't work.
+    this.age = age;
+    this.hunger = hunger;
+    this.sleep = sleep;
+    this.boredom = boredom;
+  }
+}
+const tama = new tamagotchi('tama mama', 30, 5, 5, 5); //input would go in as name
+console.log(tama);
+
+
 
 // -------------------------NAME THE TAMAGOTCHI-------------------------
 
@@ -64,16 +79,17 @@ const setTimer = () => {
     console.log(age + ' age');
     hunger = 11;
     console.log(hunger + 'hunger');
-    boredom = 15;
+    boredom = 12;
     console.log(boredom + 'boredom');
     sleepiness = 11;
     updateVals(hunger, boredom, sleepiness);
 
   }  if (time === 50) {
+    $('#tamaImg').attr('class', 'shake')
     lightsOff();
-    hunger += 3;
+    hunger += 1;
     boredom +=5;
-    sleepiness += 1;
+    sleepiness += 5;
     updateVals(hunger, boredom, sleepiness);
 
 
@@ -81,7 +97,7 @@ const setTimer = () => {
 } if ((time === 45) && (hunger >= 10 || sleepiness >= 10 || boredom >= 10 )) {
 alert($('#input-box').val() + ' has died.');
 clearInterval(timer);
-
+time = 60;
 
 } if (time === 45){
   $('#tamaImg').attr('class', 'bounce')
@@ -112,6 +128,7 @@ clearInterval(timer);
 } if ((time === 35) && (hunger >= 10 || sleepiness >= 10 || boredom >= 10 )) {
 alert($('#input-box').val() + ' has died.');
 clearInterval(timer);
+time = 60;
 
 } if (time === 30) {
   console.log(age);
@@ -130,11 +147,13 @@ clearInterval(timer);
   updateVals(hunger, boredom, sleepiness);
 
 } if (time === 10) {
-  lightsOn();
+  $('#tamaImg').attr('class', 'shake')
+  lightsOff();
   boredom += 30;
   updateVals(hunger, boredom, sleepiness);
 
 } if (time === 5) {
+  lightsOn();
   $('#tamaImg').attr('class', 'bounce');
   boredom += 5;
   sleepiness +=3;
@@ -147,12 +166,12 @@ clearInterval(timer);
 } else if ((time === 0) && (hunger >= 10 || sleepiness >= 10 || boredom >= 10 )) {
 alert($('#input-box').val() + ' has died.');
 clearInterval(timer);
-
+time = 60;
 
 } else if ((time === 0) && (hunger < 10 || sleepiness < 10 || boredom < 10 )) {
 alert($('#input-box').val() + ' has lived.');
 clearInterval(timer);
-
+time = 60;
 }
 
     $('#timer').text('timer: ' + time + 's');
@@ -168,24 +187,6 @@ $('#submit-btn').on('click', (e) => {
   console.log('button clicked'); //testing
 setTimer();
 });
-
-
-//----------------------- TAMAGOTCHI CLASS -----------------------------
-
-// you could update this class instead
-
-class tamagotchi {
-  constructor(name, age, hunger, sleep, boredom){
-    this.name = name; //do not put name as 'name' here. it doesn't work.
-    this.age = age;
-    this.hunger = hunger;
-    this.sleep = sleep;
-    this.boredom = boredom;
-  }
-}
-const tama = new tamagotchi('tama mama', 30, 5, 5, 5); //input would go in as name
-console.log(tama);
-
 
 
 // -----------------BUTTONS AND THE FUNCTIONS THAT GO WITH THEM-----------------
