@@ -1,0 +1,32 @@
+
+------------------------------  ISSUES  ------------------------------
+
+//TIMER STOPS AT 1 SECOND.
+// NEED to reset the timer back up to 60 without refreshing the page.
+
+//Could you could use a jQeury toggle function with the buttons? This way you could change the text to the icon when you click it? //
+
+
+
+
+
+-----------------------------------  NOTES  ------------------------------------
+
+
+------------------------------  GLOBAL VARIABLES  ------------------------------
+let lightsOn = true; could let you toggle the lights.
+
+
+-------------------------------  LIGHTS SECTION  -------------------------------
+http://jsfiddle.net/S4rsh/
+//could just toggle lightsOn to false.
+// }).fadeTo(1000, 0.0);
+//fadeTo() is the method. 1000 is milliseconds? 0.0 is transparency.
+
+
+-------------------------------  INPUT SECTION  --------------------------------
+//this gets the value you put in the input box with id tama
+//cannot do it opposite. ex: $('#input-box').val().appendTo('#tama');
+
+----------------------------  HTML BUTTONS SECTION  ----------------------------
+<!-- could be button type or input type. doesn't matter -->

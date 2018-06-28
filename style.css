@@ -1,7 +1,5 @@
 body {
    background-image: url("http://fc06.deviantart.net/fs70/f/2011/195/5/b/tamagotchi_new_generation_bg_by_tamastargirl-d3n8vab.jpg");
-   /* opacity: 0.1; */
-
    background-color: #cccccc;
    background-repeat: no-repeat;
    -webkit-background-size: cover;
@@ -12,27 +10,6 @@ body {
   margin: 0;
   /* margin: 0 or html, body { margin: 0 } makes it stretch the entire page. */
 }
-/* #background {
-  opacity: 0.7;
-  background-color: #cccccc;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
-} */
-
-
-
-/* TURN LIGHTS REALLY OFF */
-
-.dark {
-	background-color: black;
-	/* width: 280px;
-	height: 280px;
-	margin: 0 auto; */
-}
-
 
 /* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
 
@@ -44,20 +21,18 @@ body {
 }
 
 
-/*div id  */
+/* --------------------------- NAME INPUT SECTION ----------------------------*/
+
 #userInput {
   text-align: center;
   width: 350px;
   height: 50px;
   opacity: 1;
-  /* background-color: white; */
-  /* border: solid black 1px; */
   margin-bottom: 50px;
 }
 
 
 input{
-
     height: 50px;
     width: 300px;
     border: solid black 2px;
@@ -72,11 +47,13 @@ input{
 }
 
 
+/* --------------------------- IMAGE SECTION ----------------------------*/
+
 #tamaImg {
   width: 350px;
   height: 350px;
   border: solid white 8px;
-  background-image: url("tama_mama.gif");
+  background-image: url("imgs/tama_mama.gif");
   background-position: center;
   background-color: #fdffc2;
   background-repeat: no-repeat;
@@ -88,31 +65,35 @@ input{
 
 }
 
+
+/* --------------------------- SCOREBOARD SECTION ----------------------------*/
+
 #scoreboard {
   text-align: center;
   width: 100%;
-  height: 250px;
-  background-color: #fdffc2;
+  height: 275px;
+  background-color: #FEEBFA;
   border: solid white 8px;
   /* border-radius: %; */
 }
-
-
 
   #nameAge {
     display: flex;
     justify-content: space-around;
   }
 
+
+/* ---------------------------- BUTTONS SECTION -----------------------------*/
+
   #hbs {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 10px;
   }
 
 
   #boredomLevel {
-    /* background-color: blue;  */
-    background-image: url("bored.png");
+    background-image: url("imgs/bored.png");
     background-size: cover;
     width: 80px;
     height: 80px;
@@ -121,7 +102,7 @@ input{
   }
 
   #sleepinessLevel{
-    background-image: url("sleepy.png");
+    background-image: url("imgs/sleepy.png");
     background-size: cover;
     width: 80px;
     height: 80px;
@@ -130,7 +111,7 @@ input{
   }
 
   #hungerLevel{
-    background-image: url("hungry.png");
+    background-image: url("imgs/hungry.png");
     background-size: cover;
     text-align: center;
     width: 80px;
@@ -139,8 +120,11 @@ input{
     background-color: inherit;
   }
 
-/* ANIMATIONS */
 
+
+/* ------------------------------ ANIMATIONS -------------------------------*/
+
+/* BOUNCE */
 @-webkit-keyframes bounce {
     0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
     40% {-webkit-transform: translateY(-30px) }
@@ -151,9 +135,6 @@ input{
     40% {transform: translateY(-30px);}
     60% {transform: translateY(-20px);}
 }
-
-
-/* CLASS BOUNCE */
 .bounce {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -161,7 +142,7 @@ input{
     animation-name: bounce;
 }
 
-
+/* SPIN */
 @keyframes spin {
   from {
       transform:rotate(0deg);
